@@ -1,0 +1,9 @@
+The n8n workflow for this template lands here as `workflow.json` when the
+video publishes. (Maintainer: delete this file when adding the export.)
+
+Sanitization checklist before committing any export:
+1. Export from n8n WITHOUT credentials (use the export option).
+2. Confirm the JSON contains NO: API keys, tokens, real phone numbers, real
+   emails, live webhook URLs, or any customer/project identifiers.
+3. Replace any real values with the placeholders documented in ../.env.example.
+4. Re-import the sanitized file into a clean n8n instance to confirm it loads.
