@@ -1,27 +1,38 @@
-# Revenue With AI — Automation Templates
+# Revenue With AI - Planned Automation Templates
 
-Free, ready-to-import AI automations for small and local businesses. Each folder is a complete build from my weekly YouTube series — import it, add your own accounts, and run it.
+This repository contains plans for three n8n automations for small and local businesses.
+**No importable workflows have been published yet.** Each folder contains a design outline
+and a `workflow.json.PLACEHOLDER` notice. There is no `workflow.json` to import or run.
 
-> These are starter templates — the real value is tailoring them to *your* business. Want that done for you? [Grab a free automation audit.](https://revenuewithai.com)
+| Planned example | Intended workflow | Status |
+|---|---|---|
+| [Lead follow-up](./01-lead-follow-up) | Acknowledge a new lead, log it, and follow up if appropriate | Planned; export and video unavailable |
+| [Appointment booking](./02-appointment-booking) | Check availability, offer times, and confirm a selected slot | Planned; export and video unavailable |
+| [Review requests](./03-review-requests) | Request a review after a completed service | Planned; export and video unavailable |
 
-## Templates
+## What is available now
 
-| # | Template | What it does | Video |
-|---|---|---|---|
-| 01 | [Lead follow-up](./01-lead-follow-up) | Texts + emails every new lead in ~30 seconds, then auto-nudges | _coming soon_ |
-| 02 | [Appointment booking](./02-appointment-booking) | AI checks your calendar, offers times, books it | _coming soon_ |
-| 03 | [Review requests](./03-review-requests) | Auto-asks happy customers for a Google review | _coming soon_ |
+- Design outlines and proposed prerequisites in each folder's README.
+- `.env.example` with illustrative placeholders, for planning only. No workflow reads it.
+- A sanitization checklist in each placeholder file for the eventual export.
 
-New videos publish weekly — links land in this table as they go live.
+Please do not connect production accounts or submit customer data to these examples.
+They have no executable implementation yet. There is no release date or publishing cadence promised.
 
-## How to use a template
-1. Open the template folder and read its `README.md` for prerequisites.
-2. In n8n: **Workflows → Import from File →** select `workflow.json`.
-3. Add your own credentials (Twilio, email, AI provider, etc.) — see `.env.example`.
-4. Test with a fake lead before going live.
+## Before an example becomes ready to use
+
+The maintainer must publish a sanitized `workflow.json`, replace its placeholder notice,
+and document the tested n8n version and credential setup. Release verification must include:
+
+1. Import into a clean n8n instance.
+2. Execute the intended flow with synthetic inputs and test destinations.
+3. Verify duplicate triggers, retries, and provider failures do not cause unintended repeat actions.
+4. Document remaining limitations and actual outputs before claiming response times or booking guarantees.
+
+Each example's README will contain installation instructions once its export is available.
 
 ## License
-[MIT](./LICENSE) — use it, change it, ship it. Attribution appreciated, not required.
 
-## Who makes these
-Built by Jason at Revenue With AI. Free automation audit for your business 👉 [revenuewithai.com](https://revenuewithai.com)
+[MIT](./LICENSE). Use it, change it, ship it under the included license.
+
+Built by Jason at [Revenue With AI](https://revenuewithai.com).

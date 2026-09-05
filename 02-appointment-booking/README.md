@@ -1,37 +1,24 @@
-# 02 — Appointment Booking Automation
+# Appointment Booking - Planned Example
 
-An AI that reads an incoming message, **checks your real calendar for open slots, offers them, and books the appointment itself** — no back-and-forth, no phone tag.
+**Status: design outline only. No importable workflow or build video is available.**
+`workflow.json.PLACEHOLDER` marks where a future sanitized export would go.
 
-▶️ **Watch the build:** _video coming soon_
+## Intended flow
 
-## What it does
-1. **Trigger** — an inbound message from a lead who wants to book (Webhook: SMS, form, or DM).
-2. **AI reads intent** — returns structured data (wants_booking, preferred timeframe, service).
-3. **Checks your calendar** — pulls real events from Google Calendar; no double-booking.
-4. **Offers times** — AI writes a friendly reply with 2–3 real open slots and sends it.
-5. **Books + confirms** — on the lead's reply, creates the calendar event and sends a confirmation.
+1. Receive a booking enquiry and identify the requested service and timeframe.
+2. Check calendar availability and offer candidate times.
+3. Recheck availability when the customer selects a time.
+4. Create the appointment and report the confirmed result.
 
-## Prerequisites
-- An [n8n](https://n8n.io) instance (cloud or self-hosted)
-- An AI provider key (OpenAI or Anthropic)
-- Google Calendar connected in n8n
-- A send channel (Twilio for SMS, or email)
+Proposed integrations: n8n, an AI provider, Google Calendar, and a reply channel.
+The exact credential and configuration requirements will be documented with the export.
 
-## Setup
-1. In n8n: **Workflows → Import from File →** select `workflow.json`.
-2. Connect your Google Calendar, AI provider, and send-channel credentials.
-3. Copy `../.env.example` to `.env` and fill in your values (or set them as n8n credentials).
-4. Add a few busy blocks to a test calendar so open-slot logic is visible.
-5. **Test with a sample "can I book this week?" message** before going live.
+## Required before release
 
-## Customize
-- Adjust the slot logic (business hours, buffer time, appointment length).
-- Edit the AI prompts for tone and the questions it asks.
-- Change the confirmation message and add reminders (a Wait node + second send).
+Validate a clean import, synthetic bookings, timezone handling, simultaneous requests
+for the same slot, duplicate replies, and calendar/provider failures. The design outline
+is not evidence of protection against double-booking; that behavior must be implemented
+and tested before it is claimed.
 
-## Notes
-- Ships **without credentials** — you add your own.
-- No real keys, numbers, calendar IDs, or client data are included. Find any? Open an issue.
-
----
-Built by Revenue With AI. Want this set up on your calendar? [Free automation audit →](https://revenuewithai.com)
+See the [repository status](../README.md). Installation instructions will be added when
+`workflow.json` is published; there is currently nothing to import or activate.

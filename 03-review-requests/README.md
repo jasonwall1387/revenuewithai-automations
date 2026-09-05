@@ -1,36 +1,24 @@
-# 03 — Review Request Automation
+# Review Requests - Planned Example
 
-After a job is marked complete, automatically waits a day, then **texts the customer a friendly Google review link** — so you get more reviews without ever remembering to ask.
+**Status: design outline only. No importable workflow or build video is available.**
+`workflow.json.PLACEHOLDER` marks where a future sanitized export would go.
 
-▶️ **Watch the build:** _video coming soon_ · (Covered as task #3 in the "5 tasks to automate first" video.)
+## Intended flow
 
-## What it does
-1. **Trigger** — a job/appointment is marked complete (Webhook, CRM status, or calendar event ended).
-2. **Wait** — a set delay (e.g. 1 day) so the ask feels natural.
-3. **Sends** a short, friendly review request with your Google review link (SMS and/or email).
-4. **(Optional)** logs who was asked so you don't double-ask.
+1. Receive a completed-service event.
+2. Apply a configured delay and check whether a request has already been sent.
+3. Send a neutral review request through an eligible contact channel.
+4. Log the delivery outcome to prevent repeat requests.
 
-## Prerequisites
-- An [n8n](https://n8n.io) instance (cloud or self-hosted)
-- A send channel (Twilio for SMS, or email)
-- Your Google review link (from your Google Business Profile)
-- Optional: AI provider key if you want the message personalized
+Proposed integrations: n8n, a completion-event source, and SMS or email.
+The exact credential and configuration requirements will be documented with the export.
+Review eligibility should not depend on whether the customer gave positive feedback.
 
-## Setup
-1. In n8n: **Workflows → Import from File →** select `workflow.json`.
-2. Connect your send-channel credentials.
-3. Copy `../.env.example` to `.env` and add your review link + values.
-4. Wire the trigger to however you mark jobs complete.
-5. **Test on yourself** before sending to real customers.
+## Required before release
 
-## Customize
-- Change the delay (same day vs. next morning tends to convert best).
-- Personalize the message with the customer's name and the service done.
-- Add a branch: only ask customers who rated the job positively (protect your rating).
+Validate a clean import, synthetic completed jobs, duplicate events, contact preferences,
+delayed execution, and provider failures. No automated requests or delivery guarantees
+are implemented in this repository yet.
 
-## Notes
-- Ships **without credentials** — you add your own.
-- No real keys, numbers, review links, or client data are included. Find any? Open an issue.
-
----
-Built by Revenue With AI. Want more 5-star reviews on autopilot? [Free automation audit →](https://revenuewithai.com)
+See the [repository status](../README.md). Installation instructions will be added when
+`workflow.json` is published; there is currently nothing to import or activate.
